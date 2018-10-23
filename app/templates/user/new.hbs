@@ -1,0 +1,12 @@
+<div>
+    <h1>New User</h1>
+
+    <form {{action 'save' on="submit" }}>
+        <dl>
+            <dt>Username:<br> {{input value=username}}</dt>
+            <dt>Email:<br>{{input value=email}}</dt>
+            <dt>Password:<br>{{input type="password" value=password}}</dt>
+        </dl>
+        <button type="submit">Add</button>
+    </form>
+</div>

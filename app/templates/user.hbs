@@ -1,0 +1,11 @@
+<h2>COUCOU</h2>
+{{#link-to 'application'}}HOME{{/link-to}} {{#link-to 'user.new'}}NEW{{/link-to}}
+<ul>
+    {{#each model as |item|}}
+    <li>
+        {{#link-to 'user.edit' item.id}}{{item.username}}{{/link-to}} - {{item.password}}
+    </li>
+    {{/each}}
+</ul>
+<h2>THE END</h2>
+{{outlet}}

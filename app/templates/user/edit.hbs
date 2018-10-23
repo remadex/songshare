@@ -1,0 +1,11 @@
+<form {{action 'save' on="submit" }}>
+    <dl>
+        <dt>Username:<br> {{input value=model.username}}</dt>
+        <dt>Email:<br>{{input value=model.email}}</dt>
+        <dt>Password:<br>{{input type="password" value=model.password}}</dt>
+    </dl>
+    <div class="row">
+        <button type="submit">Done</button>
+        <button type="delete" {{action 'del' on='click' }}>Destroy</button>
+    </div>
+</form>

@@ -42,10 +42,20 @@
     "ember-source": "~3.4.0",
     "ember-welcome-page": "^3.2.0",
     "eslint-plugin-ember": "^5.2.0",
+    "express": "^4.16.4",
     "loader.js": "^4.7.0",
+    "mongoose": "^5.3.4",
     "qunit-dom": "^0.7.1"
   },
   "engines": {
     "node": "6.* || 8.* || >= 10.*"
+  },
+  "dependencies": {
+    "bcrypt": "^3.0.2",
+    "body-parser": "^1.18.3",
+    "express-validator": "^5.3.0",
+    "passport": "^0.4.0",
+    "passport-local-mongoose": "^5.0.1",
+    "validator": "^10.8.0"
   }
 }
