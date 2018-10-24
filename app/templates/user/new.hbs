@@ -1,10 +1,11 @@
 <div>
     <h1>New User</h1>
 
-    <form {{action 'save' on="submit" }}>
+    <form {{action 'save' on="submit" enctype="multipart/form-data" }}>
         <dl>
             <dt>Username:<br> {{input value=username}}</dt>
             <dt>Email:<br>{{input value=email}}</dt>
+            <dt>Image:<br>{{input type="file" value=imgProfil name="imgProfil" }}</dt>
             <dt>Password:<br>{{input type="password" value=password}}</dt>
         </dl>
         <button type="submit">Add</button>

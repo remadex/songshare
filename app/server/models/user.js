@@ -20,6 +20,10 @@ let userSchema = new mongoose.Schema({
         required: "You must specify an email",
         validate: [validator.isEmail, "Invalid email"]
     },
+    imgProfil: {
+        type: Buffer,
+        contentType: String
+    },
     password: String
 });
 

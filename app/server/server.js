@@ -2,6 +2,9 @@ const express = require('express');
 const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 const User = require('./models/user');
+const multer = require('multer');
+const fs = require('fs');
+const storage = require('./multer/storage')
 const passport = require("passport");
 const bodyParser = require("body-parser");
 const expressValidator = require("express-validator");
@@ -27,6 +30,15 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use(expressValidator());
+
+// app.use(multer({
+//     dest: "./uploads/",
+//     rename: function (fieldname, filename) {
+//         return filename;
+//     }
+// }));
+
+app.use(express.static('uploads'));
 
 mongoose.connect('mongodb://localhost/songshare');
 
@@ -65,8 +77,39 @@ app.get('/api/users/:user_id', (req, res) => {
 /********************************/
 /*------ POST A NEW USER ------*/
 /******************************/
-app.post('/api/users', (req, res) => {
+// app.use(multer({ dest: './uploads/' }).single('imgProfil'));
+
+var upload = multer({ dest: 'uploads/' })
+app.post('/api/users', upload.single('imgProfil'), (req, res) => {
     let data = new User(req.body.user);
+    console.log(data);
+    console.log(req.file);
+    console.log(data.imgProfil.contentType);
+    data.imgProfil.data = fs.readFileSync(req.files.imgProfil.path)
+    data.imgProfil.contentType = "image/png";
+    // let username = req.body.user.username;
+    // console.log(username);
+    // let image = req.body.user.imgProfil;
+    // console.log("------------------------");
+    // console.log(image);
+    // console.log("------------------------");
+    // storage(req, res, (err) => {
+    //     if (err) {
+    //         return res.end('error request file');
+    //     }
+    //     var data = new User({
+    //         username: req.body.username,
+    //         email: req.body.email,
+    //         imgProfil: req.body.imgProfil,
+    //         password: req.body.password
+    //     });
+    //     data.save().then((data) => {
+    //         res.json({ user: data });
+    //     });
+    //     console.log(req.file);
+    //     res.end('upload file success');
+    //     console.log('success');
+    // });
     data.save();
     res.json({ user: data })
 });
