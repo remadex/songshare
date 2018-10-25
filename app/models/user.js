@@ -3,6 +3,6 @@ import DS from 'ember-data';
 export default DS.Model.extend({
     username: DS.attr(),
     email: DS.attr(),
-    imgProfil: DS.attr(),
+    imgProfil: DS.attr('file'),
     password: DS.attr()
 });

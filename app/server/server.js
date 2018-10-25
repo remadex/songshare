@@ -4,7 +4,8 @@ mongoose.Promise = global.Promise;
 const User = require('./models/user');
 const multer = require('multer');
 const fs = require('fs');
-const storage = require('./multer/storage')
+const path = require('path');
+// const storage = require('./multer/storage')
 const passport = require("passport");
 const bodyParser = require("body-parser");
 const expressValidator = require("express-validator");
@@ -79,14 +80,28 @@ app.get('/api/users/:user_id', (req, res) => {
 /******************************/
 // app.use(multer({ dest: './uploads/' }).single('imgProfil'));
 
-var upload = multer({ dest: 'uploads/' })
-app.post('/api/users', upload.single('imgProfil'), (req, res) => {
-    let data = new User(req.body.user);
-    console.log(data);
-    console.log(req.file);
-    console.log(data.imgProfil.contentType);
-    data.imgProfil.data = fs.readFileSync(req.files.imgProfil.path)
-    data.imgProfil.contentType = "image/png";
+const storage = multer.diskStorage({
+    destination: './uploads/',
+    filename: (req, file, cb) => {
+        cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname))
+    }
+})
+
+var upload = multer({ storage: storage }).single('imgProfil')
+
+
+app.post('/api/users', (req, res) => {
+    console.log(req.body)
+    // let data = new User(req.body);
+    // console.log(data);
+    // upload(req, res, (err) => {
+    // console.log(req.file);
+    // })
+
+    // console.log(data);
+    // console.log(req.file);
+    // data.imgProfil.data = fs.readFileSync(req.files.imgProfil.path)
+    // data.imgProfil.contentType = "image/png";
     // let username = req.body.user.username;
     // console.log(username);
     // let image = req.body.user.imgProfil;
@@ -110,8 +125,8 @@ app.post('/api/users', upload.single('imgProfil'), (req, res) => {
     //     res.end('upload file success');
     //     console.log('success');
     // });
-    data.save();
-    res.json({ user: data })
+    // data.save();
+    // res.json({ user: data })
 });
 /************************************/
 /*------ PUT A SPECIFIC USER ------*/

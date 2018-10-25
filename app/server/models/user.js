@@ -21,7 +21,7 @@ let userSchema = new mongoose.Schema({
         validate: [validator.isEmail, "Invalid email"]
     },
     imgProfil: {
-        type: Buffer,
+        data: Buffer,
         contentType: String
     },
     password: String
