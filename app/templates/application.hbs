@@ -1,1 +1,12 @@
-{{outlet}}
+{{#ui-sticky class="segment"}}
+<div class="sticky-menu">
+    {{!-- <img class="header-image" src="https://mbtskoudsalg.com/images/soundcloud-logo-white-png.png" alt=""> --}}
+    <p class="header-title">{{#link-to 'application'}}Songshare{{/link-to}}</p>
+    {{#ui-search source=commonPasswords onSearchQuery=(action (mut query)) onSelect=(action (mut selected))}}
+    <input type="text" placeholder="Search a music" class="prompt">
+    <div class="results"></div>
+    {{/ui-search}}
+    <p class="header-home">{{#link-to 'application'}}Home{{/link-to}}</p>
+    <p class="header-upload">{{#link-to 'user.new'}}Upload{{/link-to}}</p>
+</div>
+{{/ui-sticky}} {{outlet}}

@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 const User = require('./models/user');
 const multer = require('multer');
+const uploada = multer();
 const fs = require('fs');
 const path = require('path');
 // const storage = require('./multer/storage')
@@ -12,8 +13,8 @@ const expressValidator = require("express-validator");
 
 const app = express();
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json({ limit: '50mb', extended: true }))
+app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }))
 
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', 'http://localhost:4200');
@@ -38,7 +39,7 @@ app.use(expressValidator());
 //         return filename;
 //     }
 // }));
-
+app.use(uploada.array());
 app.use(express.static('uploads'));
 
 mongoose.connect('mongodb://localhost/songshare');
@@ -91,7 +92,8 @@ var upload = multer({ storage: storage }).single('imgProfil')
 
 
 app.post('/api/users', (req, res) => {
-    console.log(req.body)
+    console.log('******************************');
+    console.log(req.body);
     // let data = new User(req.body);
     // console.log(data);
     // upload(req, res, (err) => {

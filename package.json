@@ -34,6 +34,7 @@
     "ember-cli-htmlbars-inline-precompile": "^1.0.3",
     "ember-cli-inject-live-reload": "^1.8.2",
     "ember-cli-qunit": "^4.3.2",
+    "ember-cli-sass": "^8.0.1",
     "ember-cli-sri": "^2.1.1",
     "ember-cli-template-lint": "^1.0.0-beta.1",
     "ember-cli-uglify": "^2.1.0",
@@ -50,7 +51,10 @@
     "express": "^4.16.4",
     "loader.js": "^4.7.0",
     "mongoose": "^5.3.4",
-    "qunit-dom": "^0.7.1"
+    "qunit-dom": "^0.7.1",
+    "sass": "^1.14.3",
+    "semantic-ui": "^2.2.14",
+    "semantic-ui-ember": "^3.0.3"
   },
   "engines": {
     "node": "6.* || 8.* || >= 10.*"
