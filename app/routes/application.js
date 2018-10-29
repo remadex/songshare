@@ -1,7 +1,8 @@
 import Route from '@ember/routing/route';
 
 export default Route.extend({
-    beforeModel() {
-        this.transitionTo('user')
+    model() {
+        console.log('user global')
+        return this.store.findAll('user', { reload: true });
     }
 });

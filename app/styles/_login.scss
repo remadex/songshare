@@ -1,0 +1,19 @@
+@import 'variables';
+.content-form-login{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    form{
+        width: 30%;
+        label{
+            color: $pri-col !important;
+        }
+        button{
+            color: $sec-col !important;
+            background-color: $pri-col !important;
+            &:hover{
+                color: $thi-col !important;
+            }
+        }
+    }
+}

@@ -2,27 +2,30 @@
     <h1>New User</h1>
 
     <form {{action 'save' on="submit" }}>
-            <div class="ui labeled input">
+        <div class="ui labeled input">
             <div class="ui label">
                 Username:
             </div>
             {{input value=username placeholder="Username"}}
-            </div>
-            <br />
-            <div class="ui labeled input">
+        </div>
+        <br />
+        <div class="ui labeled input">
             <div class="ui label">
                 Email:
             </div>
             {{input value=email placeholder="myemail@user.net"}}
-            </div>
-            <br />
-            <div class="ui labeled input">
+        </div>
+        <br />
+        <input type="file" name="imgProfil" id="imgProfil">
+        <button onclick={{action 'upload'}}>Upload</button>
+        <br />
+        <div class="ui labeled input">
             <div class="ui label">
                 Password:
             </div>
             {{input type="password" value=password }}
-            </div>
-            <br />
+        </div>
+        <br />
         <button type="submit">Add</button>
     </form>
 </div>

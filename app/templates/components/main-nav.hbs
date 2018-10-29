@@ -1,0 +1,14 @@
+{{#ui-sticky class="segment"}}
+<div class="sticky-menu">
+    <p class="header-title">{{#link-to 'application'}}Songshare{{/link-to}}</p>
+    {{#ui-search source=commonPasswords onSearchQuery=(action (mut query)) onSelect=(action (mut selected))}}
+    <input type="text" placeholder="Search a music" class="prompt"><i class="search-loupe search icon"></i>
+    <div class="results"></div>
+    {{/ui-search}}
+    <p class="header-button header-home">{{#link-to 'application'}}Home{{/link-to}}</p>
+    <p class="header-button header-upload">{{#link-to 'user.new'}}Upload{{/link-to}}</p>
+    <p class="header-button header-register">{{#link-to 'user.new'}}Register{{/link-to}}</p>
+    <p class="header-button header-login">{{#link-to 'login'}}Login{{/link-to}}</p>
+
+</div>
+{{/ui-sticky}}

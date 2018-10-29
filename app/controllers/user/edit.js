@@ -1,8 +1,11 @@
 import Controller from '@ember/controller';
+import ENV from "songshare/config/environment";
 
 export default Controller.extend({
+    server: ENV.APP.SERVER,
     actions: {
         save: function () {
+
             this.get('model').save().then((data) => {
                 console.log("ok edit")
                 return this.transitionToRoute('user');

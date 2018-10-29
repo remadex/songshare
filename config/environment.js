@@ -1,5 +1,4 @@
 'use strict';
-
 module.exports = function (environment) {
   let ENV = {
     modulePrefix: 'songshare',
@@ -18,8 +17,7 @@ module.exports = function (environment) {
     },
 
     APP: {
-      // Here you can pass flags/options to your application instance
-      // when it is created
+      SERVER: 'http://localhost:4500/'
     },
     contentSecurityPolicy: {
       'connect-src': "'self' http://localhost:4500"
