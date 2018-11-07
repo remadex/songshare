@@ -4,6 +4,8 @@ module.exports = function (environment) {
     modulePrefix: 'songshare',
     environment,
     rootURL: '/',
+    SERVER: 'http://localhost:4500',
+    NAMESPACE: 'api',
     locationType: 'auto',
     EmberENV: {
       FEATURES: {
@@ -17,7 +19,6 @@ module.exports = function (environment) {
     },
 
     APP: {
-      SERVER: 'http://localhost:4500/'
     },
     contentSecurityPolicy: {
       'connect-src': "'self' http://localhost:4500"

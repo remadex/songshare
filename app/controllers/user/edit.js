@@ -2,7 +2,7 @@ import Controller from '@ember/controller';
 import ENV from "songshare/config/environment";
 
 export default Controller.extend({
-    server: ENV.APP.SERVER,
+    server: ENV.SERVER,
     actions: {
         save: function () {
 

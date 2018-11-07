@@ -7,8 +7,12 @@
     {{/ui-search}}
     <p class="header-button header-home">{{#link-to 'application'}}Home{{/link-to}}</p>
     <p class="header-button header-upload">{{#link-to 'user.new'}}Upload{{/link-to}}</p>
-    <p class="header-button header-register">{{#link-to 'user.new'}}Register{{/link-to}}</p>
-    <p class="header-button header-login">{{#link-to 'login'}}Login{{/link-to}}</p>
-
+    {{#if session.isAuthenticated}}
+    <p class="header-button header-user"><a href="#"><img class="imgAccount" src="{{server}}/{{sessionAccount.user.imgProfil}}"> {{sessionAccount.user.username}}</a></p>
+        <p class="header-button header-login"><a {{action 'logout'}} href="#">Logout</a></p>
+    {{else}}
+        <p class="header-button header-register">{{#link-to 'user.new'}}Register{{/link-to}}</p>
+        <p class="header-button header-login">{{#link-to 'login'}}Login{{/link-to}}</p>
+    {{/if}}
 </div>
 {{/ui-sticky}}

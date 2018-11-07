@@ -1,12 +1,17 @@
 <div class="content-form-login">
-    <form class="ui form">
+    {{!-- {{#if errors}}
+        {{#each errors}}
+        <p>{{msg}}</p>
+        {{/each}}
+    {{/if}} --}}
+    <form {{action "onSignUp" email password on="submit" }} class="ui form">
         <div class="field">
             <label>Email</label>
-            <input type="text" name="email" placeholder="myemail@user.net">
+            {{input type="email" name="email" placeholder="user@mail.com" value=email}}
         </div>
         <div class="field">
             <label>Password</label>
-            <input type="password" name="password" placeholder="Your password">
+            {{input type="password" name="password" placeholder="Your password" value=password}}
         </div>
         <button class="ui button" type="submit">Login</button>
     </form>

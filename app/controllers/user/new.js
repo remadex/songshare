@@ -8,7 +8,7 @@ export default Controller.extend({
             let email = this.get('email');
             let imgProfil = this.get('uploadedFile');
             let password = this.get('password');
-            console.log(imgProfil.path);
+            console.log(email);
             let user = this.store.createRecord("user", {
                 username: username,
                 email: email,
@@ -20,7 +20,7 @@ export default Controller.extend({
             this.set('email', '');
             this.set('password', '');
             this.set('imgProfil', '');
-            this.transitionToRoute('user');
+            // this.transitionToRoute('user');
         },
         upload(e) {
             let self = this;
@@ -29,7 +29,7 @@ export default Controller.extend({
             let form = new FormData();
             form.append('imgProfil', file, file.name);
             $.ajax({
-                url: "http://localhost:4500/api/users/image",
+                url: "http://localhost:4500/api/users/image/profil",
                 data: form,
                 contentType: false,
                 processData: false,
