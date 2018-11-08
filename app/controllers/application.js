@@ -7,7 +7,6 @@ export default Controller.extend({
             this.get('model').deleteRecord();
             this.transitionToRoute('');
             this.get('model').save();
-
         }
     }
 });

@@ -8,8 +8,8 @@ export default DS.RESTAdapter.extend(DataAdapterMixin, {
     host: 'http://localhost:4500',
     session: service('session'),
     authorize(xhr) {
+        console.log('CHAT')
         let { access_token } = this.get('session.data.authenticated');
-        console.log(access_token);
         xhr.setRequestHeader('Authorization', `Bearer ${access_token}`);
     }
 });

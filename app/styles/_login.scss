@@ -3,6 +3,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction:column;
     form{
         width: 30%;
         label{
@@ -14,6 +15,17 @@
             &:hover{
                 color: $thi-col !important;
             }
+        }
+    }
+    .error{
+        margin-top:10px;
+        text-align:center;
+        span{
+            color:$sec-col;
+            text-transform: uppercase;
+            padding:10px;
+            border-radius:100px;
+            background-color: $pri-col;
         }
     }
 }

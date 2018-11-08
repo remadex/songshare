@@ -8,7 +8,7 @@ export default Service.extend({
 
     loadCurrentUser() {
         let userId = this.get('session.data.authenticated.account_id');
-        console.log(userId);
+        // console.log(userId);
         if (!isEmpty(userId)) {
             return this.get('store').findRecord('user', userId).then((user) => {
                 console.log(user);

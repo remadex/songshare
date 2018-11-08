@@ -13,6 +13,14 @@
             <label>Password</label>
             {{input type="password" name="password" placeholder="Your password" value=password}}
         </div>
+    
         <button class="ui button" type="submit">Login</button>
     </form>
+    {{#if errorMessage}}
+  <div class="error">
+    <p>
+      <span>{{errorMessage.msg}}</span>
+    </p>
+  </div>
+{{/if}}
 </div>
