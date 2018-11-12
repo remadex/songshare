@@ -3,9 +3,10 @@ const express = require('express'),
   expressValidator = require('express-validator'),
   UsersRouter = require('./routes/user'),
   ImageRouter = require('./routes/img'),
+  MusicRouter = require('./routes/music'),
   AuthRouter = require('./routes/auth'),
   cors = require('cors'),
-  imgConfig = require('./config/multer'),
+  multerConfig = require('./config/multer'),
   User = require('./models/user'),
   passport = require('passport');
 
@@ -42,7 +43,8 @@ app.use(expressValidator());
  */
 app.use('/api', AuthRouter);
 app.use('/api/users', /*passport.authenticate('jwt', { session: false }),*/ UsersRouter);
-app.use('/api/users/image', imgConfig.upload.single('imgProfil'), ImageRouter);
+app.use('/api/users/image', multerConfig.uploadImage.single('imgProfil'), ImageRouter);
+app.use('/api/users/music', multerConfig.uploadMusic.single('musicAccount'), MusicRouter);
 
 /**
  * Export our config of middleware and route

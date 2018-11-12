@@ -1,0 +1,45 @@
+@import 'variables';
+.uploadForm{
+    div{
+        margin:0 0 10px 0
+    }
+    .inputFile{
+        background-color: $pri-col;
+        color: $sec-col !important;
+        border:1px solid $pri-col;
+        text-transformation: uppercase !important;
+        .icon {
+            color:$thi-col;
+            padding-right:20px !important;
+        }
+        &:hover{
+            background-color: $sec-col !important;
+            color: $pri-col !important;
+            transition: all ease-in-out .3s;
+        }
+    }
+    .whiteButton{
+        background-color:$thi-col !important;
+        border:none;
+        &:hover{
+            background-color: $pri-col !important;
+            color: $sec-col !important;
+        }
+    }
+    .whiteButtonNoHover{
+        background-color:$thi-col !important;
+        border:none;
+    }
+    .label{
+        background-color: $pri-col;
+        color: $sec-col !important;
+    }
+    .input > input{
+        border: 1px solid $pri-col !important;
+        background-color:$thi-col !important;
+        color: $sec-col !important;
+        &::placeholder{
+            color: $sec-col;
+        }
+    }
+}

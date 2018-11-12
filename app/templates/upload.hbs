@@ -1,0 +1,47 @@
+<div>
+    <h1>Add a new music</h1>
+
+    <form class="uploadForm" {{action 'save' on="submit" }}>
+        <div>
+            <label id="box_music" for="musicAccount" class="ui icon button inputFile"> 
+                <i class="music icon"></i>Add a music
+            </label>
+            <input type="file" style="display:none" name="musicAccount" onchange={{action 'fileUpdate' "music"}} id="musicAccount">
+            <button class="ui button whiteButtonNoHover" onclick={{action 'uploadMusic'}}>Upload</button>
+        </div>
+        <br />
+        <div class="ui labeled input">
+            <div class="ui label">
+                Title
+            </div>
+            {{input value=title placeholder="Title"}}
+        </div>
+        <br />
+        
+        <div class="ui labeled input">
+            <div class="ui label">
+                Genre (separate it by a comma)
+            </div>
+            {{input value=genre placeholder="DnB, House, Classic, ..."}}
+        </div>
+        <br />
+        <div>
+            <label id="box_img" for="imgMusic" class="ui icon button inputFile"> 
+                <i class="file image icon"></i>Add a picture
+            </label>
+            <input type="file" accept="image/png,image/jpeg" style="display:none" name="imgMusic" onchange={{action 'fileUpdate' "img"}} id="imgMusic">
+            <button class="ui button whiteButtonNoHover" onclick={{action 'uploadImgMusic'}}>Upload</button>
+        </div>
+        <br />
+        <div class="ui labeled input">
+            <div class="ui label">
+                Year:
+            </div>
+            {{input value=year placeholder="2016"}}
+        </div>
+        <br />
+        <button class="ui button whiteButtonNoHover" type="submit">Add</button>
+    </form>
+</div>
+
+
