@@ -1,18 +1,28 @@
 {{#ui-sticky class="segment"}}
 <div class="sticky-menu">
-    <p class="header-title">{{#link-to 'application'}}Songshare{{/link-to}}</p>
-    {{#ui-search source=commonPasswords onSearchQuery=(action (mut query)) onSelect=(action (mut selected))}}
-    <input type="text" placeholder="Search a music" class="prompt"><i class="search-loupe search icon"></i>
-    <div class="results"></div>
-    {{/ui-search}}
-    {{!-- <p class="header-button header-home">{{#link-to 'application'}}Home{{/link-to}}</p> --}}
-    {{#if session.isAuthenticated}}
-    <p class="header-button header-upload">{{#link-to 'upload'}}Upload{{/link-to}}</p>
-    <p class="header-button header-user"><a href="#"><img class="imgAccount" src="{{server}}/{{sessionAccount.user.imgProfil}}"> {{sessionAccount.user.username}}</a></p>
-        <p class="header-button header-login"><a {{action 'logout'}} href="#">Logout</a></p>
-    {{else}}
-        <p class="header-button header-register">{{#link-to 'user.new'}}Register{{/link-to}}</p>
-        <p class="header-button header-login">{{#link-to 'login'}}Login{{/link-to}}</p>
-    {{/if}}
+    <ul>
+        <li class="header-title">{{#link-to 'application'}}Songshare{{/link-to}}</li>
+        <li>
+        {{#ui-search source=commonPasswords onSearchQuery=(action (mut query)) onSelect=(action (mut selected))}}
+            <input type="text" placeholder="Search a music" class="prompt"><i class="search-loupe search icon"></i>
+            <div class="results"></div>
+        {{/ui-search}}
+        </li>
+        {{#if session.isAuthenticated}}
+        <li class="header-button header-upload">{{#link-to 'upload'}}Upload{{/link-to}}</li>
+        <li class="header-button header-userAccount">
+                <a href="#"><img class="imgAccount" src="{{server}}/{{sessionAccount.user.imgProfil}}"> {{sessionAccount.user.username}}</a>
+                <ul>
+                    <li><a href="#">My profil</a></li>
+                    <li><a href="user/{{sessionAccount.user.id}}/edit">Edit my profil</a></li>
+                    <li><a href="#">My music</a></li>
+                </ul>
+        </li>
+        <li class="header-button header-login"><a {{action 'logout'}} href="#">Logout</a></li>
+        {{else}}
+        <li class="header-button header-register">{{#link-to 'user.new'}}Register{{/link-to}}</li>
+        <li class="header-button header-login">{{#link-to 'login'}}Login{{/link-to}}</li>
+        {{/if}}
+    </ul>
 </div>
 {{/ui-sticky}}

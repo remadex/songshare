@@ -1,7 +1,7 @@
 <div>
-    <h1>New User</h1>
 
-    <form {{action 'save' on="submit" }}>
+    <form class="userForm" {{action 'save' on="submit" }}>
+    <h1>New User</h1>
         <div class="ui labeled input">
             <div class="ui label">
                 Username:
@@ -16,9 +16,13 @@
             {{input value=email placeholder="myemail@user.net"}}
         </div>
         <br />
-        <input type="file" name="imgProfil" id="imgProfil">
-        <button onclick={{action 'upload'}}>Upload</button>
-        <br />
+        <div>
+            <label id="box_img" for="imgProfil" class="ui icon button inputFile"> 
+                <i class="file image icon"></i>Add a picture
+            </label>
+            <input type="file" accept="image/png,image/jpeg" style="display:none" name="imgProfil" value=imgProfil onchange={{action 'fileUpdate'}} id="imgProfil">
+            <button class="ui button whiteButtonNoHover" onclick={{action 'upload'}}>Upload</button>
+        </div>
         <div class="ui labeled input">
             <div class="ui label">
                 Password:
@@ -26,6 +30,6 @@
             {{input type="password" value=password }}
         </div>
         <br />
-        <button type="submit">Add</button>
+        <button class="ui button whiteButtonNoHover" type="submit">Add</button>
     </form>
 </div>

@@ -1,8 +1,1 @@
-<ul>
-    {{#each model as |item|}}
-    <li>
-        {{#link-to 'user.edit' item.id}}{{item.username}}{{/link-to}} - {{item.password}}
-    </li>
-    {{/each}}
-</ul>
 {{outlet}}

@@ -1,12 +1,33 @@
-<form {{action 'save' on="submit" }}>
-    <dl>
-        <dt>Username:<br> {{input value=model.username}}</dt>
-        <dt>Email:<br>{{input value=model.email}}</dt>
-        <dt>Password:<br>{{input type="password" value=model.password}}</dt>
-        <img src="{{server}}/{{model.imgProfil}}" alt="{{model.username}}_photo_de_profil" class="editImage">
-    </dl>
-    <div class="row ">
-        <button type="submit ">Done</button>
-        <button type="delete " {{action 'del' on='click' }}>Destroy</button>
-    </div>
+<form class="editUserForm" {{action 'save' model.id on="submit" }}>
+    <div class="ui labeled input">
+            <div class="ui label">
+                Username:
+            </div>
+            {{input value=model.username placeholder="Username"}}
+        </div>
+        <br />
+        <div class="ui labeled input">
+            <div class="ui label">
+                Email:
+            </div>
+            {{input value=model.email placeholder="myemail@user.net"}}
+        </div>
+        <br />
+        <img src="{{server}}/{{model.imgProfil}}" alt="{{model.username}}_photo_de_profil" id="editImage" class="editImage">
+        <div>
+            <label id="box_img" for="imgProfil" class="ui icon button inputFile"> 
+                <i class="file image icon"></i>Add a picture
+            </label>
+            <input type="file" accept="image/png,image/jpeg" style="display:none" name="imgProfil" value=imgProfil onchange={{action 'fileUpdate'}} id="imgProfil">
+            <button class="ui button whiteButtonNoHover" onclick={{action 'upload'}}>Upload</button>
+        </div>
+        <div class="ui labeled input">
+            <div class="ui label">
+                Password:
+            </div>
+            {{input type="password" id="editPassword" value="password" }}
+        </div>
+        <br />
+        <button  class="ui button whiteButtonNoHover" type="submit ">Done</button>
+        <button  class="ui button whiteButtonNoHover" type="delete " {{action 'del' on='click' }}>Destroy</button>
 </form>

@@ -3,10 +3,17 @@ import Controller from '@ember/controller';
 export default Controller.extend({
     uploadedFile: null,
     actions: {
+        fileUpdate(type){
+                let file = document.getElementById('imgProfil').files[0];
+                let box = document.getElementById('box_img');
+                box.innerHTML = file.name
+        },
         save() {
             let username = this.get('username');
             let email = this.get('email');
             let imgProfil = this.get('uploadedFile');
+            console.log(email);
+            console.log(imgProfil);
             let password = this.get('password');
             console.log(email);
             let user = this.store.createRecord("user", {
@@ -20,7 +27,7 @@ export default Controller.extend({
             this.set('email', '');
             this.set('password', '');
             this.set('imgProfil', '');
-            // this.transitionToRoute('user');
+            this.transitionToRoute('user');
         },
         upload(e) {
             let self = this;
