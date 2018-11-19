@@ -8,12 +8,7 @@ let musicSchema = new mongoose.Schema({
         require: true,
         trim: true
     },
-    autor: {
-        type: String,
-        trim: true,
-        unique: true,
-        lowercase: true
-    },
+    autor: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
     path: String,
     img: String,
     year: String,

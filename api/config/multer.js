@@ -10,6 +10,15 @@ const storageImage = multer.diskStorage({
     }
 });
 
+const storageImgMusic = multer.diskStorage({
+    destination: (req, file, next) => {
+        next(null, './public/music/image/');
+    },
+    filename: (req, file, next) => {
+        next(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname))
+    }
+});
+
 const storageMusic = multer.diskStorage({
     destination: (req, file, next) => {
         next(null, './public/music/');
@@ -20,5 +29,7 @@ const storageMusic = multer.diskStorage({
 });
 
 exports.uploadImage = multer({ storage: storageImage });
+
+exports.uploadImgMusic = multer({ storage: storageImgMusic });
 
 exports.uploadMusic = multer({ storage: storageMusic });

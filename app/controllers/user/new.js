@@ -27,7 +27,7 @@ export default Controller.extend({
             this.set('email', '');
             this.set('password', '');
             this.set('imgProfil', '');
-            this.transitionToRoute('user');
+            this.transitionToRoute('login');
         },
         upload(e) {
             let self = this;
@@ -43,10 +43,10 @@ export default Controller.extend({
                 type: 'POST',
                 success: function (data) {
                     self.set("uploadedFile", data)
+                    document.getElementById('buttonUpload').classList.add('uploadSucess')
                 },
                 error: function (msg) {
-                    console.log('/-/-/-/-/-/-/-/-/-/-/-/-/-/');
-                    console.log(msg);
+                    document.getElementById('buttonUpload').classList.add('uploadFail')
                 }
             })
         }

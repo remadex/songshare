@@ -21,7 +21,7 @@
                 <i class="file image icon"></i>Add a picture
             </label>
             <input type="file" accept="image/png,image/jpeg" style="display:none" name="imgProfil" value=imgProfil onchange={{action 'fileUpdate'}} id="imgProfil">
-            <button class="ui button whiteButtonNoHover" onclick={{action 'upload'}}>Upload</button>
+            <button class="ui button whiteButtonNoHover" id="buttonUpload" onclick={{action 'upload'}}>Upload</button>
         </div>
         <div class="ui labeled input">
             <div class="ui label">

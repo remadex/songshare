@@ -42,4 +42,13 @@
             color: $sec-col;
         }
     }
+    .uploadSucess{
+        background-color: rgb(3, 202, 3) !important;
+        color: $thi-col !important;
+        pointer-events: none;
+    }
+    .uploadFail{
+        background-color: rgb(202, 9, 9) !important;
+        color: $thi-col !important;
+    }
 }

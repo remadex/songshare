@@ -7,7 +7,7 @@
                 <i class="music icon"></i>Add a music
             </label>
             <input type="file" style="display:none" name="musicAccount" onchange={{action 'fileUpdate' "music"}} id="musicAccount">
-            <button class="ui button whiteButtonNoHover" onclick={{action 'uploadMusic'}}>Upload</button>
+            <button class="ui button whiteButtonNoHover" id="buttonUploadMusic" onclick={{action 'uploadMusic'}}>Upload</button>
         </div>
         <div class="ui labeled input">
             <div class="ui label">
@@ -29,7 +29,7 @@
                 <i class="file image icon"></i>Add a picture
             </label>
             <input type="file" accept="image/png,image/jpeg" style="display:none" name="imgMusic" onchange={{action 'fileUpdate' "img"}} id="imgMusic">
-            <button class="ui button whiteButtonNoHover" onclick={{action 'uploadImgMusic'}}>Upload</button>
+            <button class="ui button whiteButtonNoHover" id="buttonUploadImgMusic" onclick={{action 'uploadImgMusic'}}>Upload</button>
         </div>
         <div class="ui labeled input">
             <div class="ui label">
