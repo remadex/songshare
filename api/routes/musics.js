@@ -4,6 +4,7 @@ const Express = require('express'),
 
 Router
   .route('')
+  .get(MusicController.get)
   .post(MusicController.create);
 
 module.exports = Router;

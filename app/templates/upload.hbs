@@ -6,7 +6,7 @@
             <label id="box_music" for="musicAccount" class="ui icon button inputFile"> 
                 <i class="music icon"></i>Add a music
             </label>
-            <input type="file" style="display:none" name="musicAccount" onchange={{action 'fileUpdate' "music"}} id="musicAccount">
+            <input type="file"  accept="audio/mp3" style="display:none" name="musicAccount" onchange={{action 'fileUpdate' "music"}} id="musicAccount">
             <button class="ui button whiteButtonNoHover" id="buttonUploadMusic" onclick={{action 'uploadMusic'}}>Upload</button>
         </div>
         <div class="ui labeled input">

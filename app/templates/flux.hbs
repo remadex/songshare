@@ -1,0 +1,20 @@
+{{#each model as |music|}}
+<article oninit={{action "computeTimestamp"}}>
+    <div class="musicPlayer">
+        <div>
+            <img class="imgMusic" src="{{server}}/{{music.img}}">
+        </div>
+        <div>
+            <p>{{music.timestamp}}</p>
+            <h4>{{music.autor}}</h4>
+            <h3>{{music.title}}</h3>
+            <audio
+            controls
+            src="{{server}}/{{music.path}}">
+                Your browser does not support the
+                <code>audio</code> element.
+            </audio>
+        </div>
+    </div>
+  </article>
+{{/each}}

@@ -15,6 +15,7 @@ Router.map(function () {
   });
   this.route('login');
   this.route('upload');
+  this.route('flux');
 });
 
 export default Router;

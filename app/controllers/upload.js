@@ -26,9 +26,10 @@ export default Controller.extend({
             let year = this.get('year');
             let timestamp = Date.now();
             let genre = this.get('genre');
-            genre = genre.trim().split(',')
+            genre = genre.trim();
+            genre = genre.split(',');
             let description = "Une description lambda";
-            console.log(music.path);
+            console.log(genre);
             let data = this.store.createRecord("music", {
                 title: title,
                 autor: autor,
@@ -45,7 +46,7 @@ export default Controller.extend({
             this.set('imgMusic', '');
             this.set('year', '');
             this.set('genre', '');
-            this.transitionToRoute('user');
+            this.transitionToRoute('flux');
         },
         uploadImgMusic(e){
             let self = this;

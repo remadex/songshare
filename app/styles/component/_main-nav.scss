@@ -95,11 +95,13 @@
     }
 }
 .header-userAccount{
-    min-width:150px;
+    min-width:100px;
     width:auto;
     .imgAccount{
-        height:30px;
-        width:30px;
+        height:35px;
+        width:35px;
+        border:1px solid $thi-col;
+        padding:2px;
         float:left;
         margin-top:3px;
         border-radius:100px;
@@ -109,11 +111,11 @@
         display:none;
         list-style: none;
         padding-left:0;
-        margin-left: 45px;
+        margin-left: 0px;
         padding-top:10px;
         text-align: left;
         li{
-        border-top:1px solid white;
+            border-top:1px solid white;
             padding:5px;
             background-color: $pri-col !important
         }

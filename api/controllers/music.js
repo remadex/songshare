@@ -25,6 +25,17 @@ exports.create = async (req, res) => {
     res.json()
 }
 
+exports.get = async (req, res) => {
+    let musics = await Music.find();
+    if (!musics) {
+        return res.status(400).json({
+            message: 'Musics cannot be retrieved'
+        })
+    }
+    return res.json({ musics });
+}
+
+
 exports.postImgMusic = async (req, res) => {
     console.log('----------------------------');
     console.log(req.file);
@@ -38,7 +49,7 @@ exports.postMusic = async (req, res) => {
 }
 
 exports.getMusics = async (req, res) => {
-    
+
 }
 
 
